@@ -53,7 +53,52 @@ This project is actively being built. The structure and modeling approach are in
 
 ## Running it yourself
 
-*Setup instructions will be added as each phase is completed. For now, see BUILD_PLAN.md for the intended architecture and sequence.*
+### Phase 0 — project scaffolding
+
+**Prerequisites**
+- Snowflake account (trial is fine) with a warehouse, database, and user configured
+- dbt Core installed (`pip install dbt-snowflake`)
+
+**1. Clone the repo and install dbt packages**
+
+```bash
+git clone https://github.com/willwhittenton/marketing-analytics-foundation.git
+cd marketing-analytics-foundation/marketing_analytics_foundation
+dbt deps
+```
+
+**2. Create `~/.dbt/profiles.yml`**
+
+`profiles.yml` lives outside the project directory so credentials are never committed. Create it manually:
+
+```yaml
+marketing_analytics_foundation:
+  target: dev
+  outputs:
+    dev:
+      type: snowflake
+      account: <orgname>-<accountname>   # found under Admin → Accounts in Snowflake
+      user: <your_username>
+      authenticator: externalbrowser     # or swap for `password:` if not using SSO
+      database: <your_database>
+      warehouse: <your_warehouse>
+      schema: dbt_dev
+      role: <your_role>
+      threads: 4
+      client_session_keep_alive: false
+```
+
+**3. Verify the connection**
+
+```bash
+dbt debug
+```
+
+All checks should pass. If `Connection test` fails, double-check your `account` identifier — it must be in `orgname-accountname` format, not the legacy `accountname.region` format.
+
+**4. Confirm `.gitignore` is in place**
+
+`target/`, `dbt_packages/`, `logs/`, and `profiles.yml` are all covered. No credentials or compiled artifacts will be committed.
 
 ---
 

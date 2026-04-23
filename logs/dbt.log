@@ -1,0 +1,88 @@
+[0m22:18:00.636056 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f2b672ecfe0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f2b696d6cf0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f2b672ef800>]}
+
+
+============================== 22:18:00.640763 | cf0951d9-042c-4e4d-870a-0041051a0407 ==============================
+[0m22:18:00.640763 [info ] [MainThread]: Running with dbt=1.11.8
+[0m22:18:00.641568 [debug] [MainThread]: running dbt with arguments {'debug': 'False', 'introspect': 'True', 'send_anonymous_usage_stats': 'True', 'warn_error': 'None', 'static_parser': 'True', 'cache_selected_only': 'False', 'target_path': 'None', 'printer_width': '80', 'profiles_dir': '/home/willwhittenton/.dbt', 'fail_fast': 'False', 'indirect_selection': 'eager', 'partial_parse': 'True', 'empty': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'log_cache_events': 'False', 'write_json': 'True', 'quiet': 'False', 'use_experimental_parser': 'False', 'no_print': 'None', 'version_check': 'True', 'log_path': 'logs', 'invocation_command': 'dbt init', 'use_colors': 'True', 'log_format': 'default'}
+[0m22:18:00.652669 [info ] [MainThread]: Creating dbt configuration folder at /home/willwhittenton/.dbt
+[0m22:18:38.967217 [debug] [MainThread]: Starter project path: /home/willwhittenton/git/marketing-analytics-foundation/.venv/lib64/python3.12/site-packages/dbt/include/starter_project
+[0m22:18:38.972619 [info ] [MainThread]: 
+Your new dbt project "marketing_analytics_foundation" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m22:18:38.973370 [info ] [MainThread]: Setting up your profile.
+[0m22:18:42.841289 [debug] [MainThread]: Snowflake adapter: Setting snowflake.connector to ERROR (file logging only)
+[0m22:18:42.842138 [debug] [MainThread]: Snowflake adapter: Setting botocore to ERROR (file logging only)
+[0m22:18:42.842684 [debug] [MainThread]: Snowflake adapter: Setting boto3 to ERROR (file logging only)
+[0m11:05:56.024735 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fb338d016d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fb33968e840>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fb339af2210>]}
+
+
+============================== 11:05:56.029843 | 0ee2c521-4c53-4879-856c-eac23623594c ==============================
+[0m11:05:56.029843 [info ] [MainThread]: Running with dbt=1.11.8
+[0m11:05:56.030362 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'profiles_dir': '/home/willwhittenton/.dbt', 'cache_selected_only': 'False', 'log_path': 'logs', 'log_cache_events': 'False', 'introspect': 'True', 'version_check': 'True', 'fail_fast': 'False', 'target_path': 'None', 'use_experimental_parser': 'False', 'quiet': 'False', 'use_colors': 'True', 'debug': 'False', 'send_anonymous_usage_stats': 'True', 'partial_parse': 'True', 'log_format': 'default', 'no_print': 'None', 'indirect_selection': 'eager', 'warn_error': 'None', 'invocation_command': 'dbt init', 'printer_width': '80', 'empty': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'write_json': 'True'}
+[0m11:06:03.651233 [info ] [MainThread]: A project called marketing_analytics_foundation already exists here.
+[0m11:06:03.671247 [debug] [MainThread]: Resource report: {"command_name": "init", "command_success": true, "command_wall_clock_time": 7.696106, "process_in_blocks": "37000", "process_kernel_time": 0.279434, "process_mem_max_rss": "103592", "process_out_blocks": "8", "process_user_time": 1.458561}
+[0m11:06:03.671933 [debug] [MainThread]: Command `dbt init` succeeded at 11:06:03.671852 after 7.70 seconds
+[0m11:06:03.672272 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fb339569ac0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fb3397b4680>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fb338968170>]}
+[0m11:06:03.672613 [debug] [MainThread]: Flushing usage events
+[0m11:06:03.895719 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m11:52:39.705479 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f12a742ac30>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f12a9491d60>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f12a6bc6c30>]}
+
+
+============================== 11:52:39.709078 | f23362ad-5330-4731-9180-97104bca74f7 ==============================
+[0m11:52:39.709078 [info ] [MainThread]: Running with dbt=1.11.8
+[0m11:52:39.709629 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'partial_parse': 'True', 'version_check': 'True', 'send_anonymous_usage_stats': 'True', 'target_path': 'None', 'debug': 'False', 'log_path': 'logs', 'indirect_selection': 'eager', 'no_print': 'None', 'empty': 'None', 'use_experimental_parser': 'False', 'use_colors': 'True', 'fail_fast': 'False', 'warn_error': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'quiet': 'False', 'profiles_dir': '/home/willwhittenton/.dbt', 'log_cache_events': 'False', 'cache_selected_only': 'False', 'printer_width': '80', 'write_json': 'True', 'introspect': 'True', 'log_format': 'default', 'invocation_command': 'dbt deps'}
+[0m11:52:39.710250 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path /home/willwhittenton/git/marketing-analytics-foundation/dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m11:52:39.711084 [debug] [MainThread]: Resource report: {"command_name": "deps", "command_success": false, "command_wall_clock_time": 0.05458342, "process_in_blocks": "0", "process_kernel_time": 0.14052, "process_mem_max_rss": "103112", "process_out_blocks": "48", "process_user_time": 1.181533}
+[0m11:52:39.711530 [debug] [MainThread]: Command `dbt deps` failed at 11:52:39.711450 after 0.06 seconds
+[0m11:52:39.711870 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f12a6b5bd70>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f12a65f9340>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f12a641c3e0>]}
+[0m11:52:39.712227 [debug] [MainThread]: Flushing usage events
+[0m11:52:39.882372 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m11:53:09.913047 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f1280016150>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f12805ec8f0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f1280016240>]}
+
+
+============================== 11:53:09.917033 | 524236f5-e4c1-41c2-bca4-ea9c26a8ff34 ==============================
+[0m11:53:09.917033 [info ] [MainThread]: Running with dbt=1.11.8
+[0m11:53:09.917586 [debug] [MainThread]: running dbt with arguments {'profiles_dir': '/home/willwhittenton/.dbt', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'log_path': 'logs', 'target_path': 'None', 'no_print': 'None', 'use_experimental_parser': 'False', 'indirect_selection': 'eager', 'warn_error': 'None', 'send_anonymous_usage_stats': 'True', 'printer_width': '80', 'log_cache_events': 'False', 'log_format': 'default', 'debug': 'False', 'version_check': 'True', 'write_json': 'True', 'fail_fast': 'False', 'partial_parse': 'True', 'introspect': 'True', 'use_colors': 'True', 'static_parser': 'True', 'cache_selected_only': 'False', 'empty': 'None', 'invocation_command': 'dbt deps', 'quiet': 'False'}
+[0m11:53:09.918257 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path /home/willwhittenton/git/marketing-analytics-foundation/dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m11:53:09.919158 [debug] [MainThread]: Resource report: {"command_name": "deps", "command_success": false, "command_wall_clock_time": 0.056249738, "process_in_blocks": "0", "process_kernel_time": 0.146424, "process_mem_max_rss": "103276", "process_out_blocks": "16", "process_user_time": 1.169386}
+[0m11:53:09.919631 [debug] [MainThread]: Command `dbt deps` failed at 11:53:09.919545 after 0.06 seconds
+[0m11:53:09.919975 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f127f6c3710>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f127fe3c9b0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f127fe93ec0>]}
+[0m11:53:09.920343 [debug] [MainThread]: Flushing usage events
+[0m11:53:10.043520 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m13:12:11.074656 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f6c627e35f0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f6c624bd6a0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f6c62b2d520>]}
+
+
+============================== 13:12:11.078325 | 84aacaf8-caa3-49dc-a25d-e52927744cd7 ==============================
+[0m13:12:11.078325 [info ] [MainThread]: Running with dbt=1.11.8
+[0m13:12:11.078826 [debug] [MainThread]: running dbt with arguments {'indirect_selection': 'eager', 'profiles_dir': '/home/willwhittenton/.dbt', 'use_experimental_parser': 'False', 'quiet': 'False', 'static_parser': 'True', 'write_json': 'True', 'invocation_command': 'dbt deps', 'version_check': 'True', 'send_anonymous_usage_stats': 'True', 'warn_error': 'None', 'no_print': 'None', 'empty': 'None', 'target_path': 'None', 'debug': 'False', 'use_colors': 'True', 'fail_fast': 'False', 'partial_parse': 'True', 'printer_width': '80', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'log_path': 'logs', 'cache_selected_only': 'False', 'log_format': 'default', 'log_cache_events': 'False', 'introspect': 'True'}
+[0m13:12:11.079391 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path /home/willwhittenton/git/marketing-analytics-foundation/dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m13:12:11.080179 [debug] [MainThread]: Resource report: {"command_name": "deps", "command_success": false, "command_wall_clock_time": 0.05428358, "process_in_blocks": "0", "process_kernel_time": 0.142334, "process_mem_max_rss": "103108", "process_out_blocks": "8", "process_user_time": 1.181513}
+[0m13:12:11.080609 [debug] [MainThread]: Command `dbt deps` failed at 13:12:11.080532 after 0.05 seconds
+[0m13:12:11.080934 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f6c6251ed20>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f6c6265c8f0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f6c62b2d520>]}
+[0m13:12:11.081285 [debug] [MainThread]: Flushing usage events
+[0m13:12:11.120763 [debug] [MainThread]: An error was encountered while trying to flush usage events

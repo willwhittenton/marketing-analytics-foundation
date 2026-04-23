@@ -1,0 +1,18 @@
+# dbt artifacts
+marketing_analytics_foundation/target/
+marketing_analytics_foundation/dbt_packages/
+marketing_analytics_foundation/logs/
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# Credentials -- never commit these
+profiles.yml
+.env
+*.env
+
+# OS
+.DS_Store
