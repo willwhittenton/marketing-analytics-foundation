@@ -136,6 +136,8 @@ def generate_subscription_events(users: list[dict]) -> list[dict]:
         })
         event_id += 1
 
+        # users convert 
+
         # TODO: add subsequent events per user based on their plan_tier and is_churned status
 
     return events

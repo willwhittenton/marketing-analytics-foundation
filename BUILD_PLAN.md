@@ -19,9 +19,9 @@ This document is the working plan for building out this project. It exists so th
 ## Phase 0 -- project scaffolding
 *Goal: a working dbt project connected to Snowflake with nothing in it yet*
 
-- [ ] Create Snowflake trial account and configure warehouse, database, schemas
-- [ ] Initialize dbt project with `dbt init`
-- [ ] Configure `profiles.yml` for Snowflake connection
+- [X] Create Snowflake trial account and configure warehouse, database, schemas
+- [X] Initialize dbt project with `dbt init`
+- [X] Configure `profiles.yml` for Snowflake connection
 - [ ] Add `dbt-utils` to `packages.yml` and run `dbt deps`
 - [ ] Confirm `dbt debug` passes cleanly
 - [ ] Create repo structure: `models/staging`, `models/intermediate`, `models/marts`, `seeds/`, `tests/`
