@@ -51,13 +51,13 @@ def random_date(start: date, end: date) -> date:
 def churn_probability(plan_tier: str) -> float:
     """Return the probability a user on the given plan_tier will churn."""
     if plan_tier == "free":
-        return 0.40  # free users are more likely to churn
+        return 0.00  # free users cannot churn (only subscriptions for this project)
     elif plan_tier == "starter":
         return 0.23
     elif plan_tier == "pro":
         return 0.12 
     else: 
-        return 0.30  # default churn probability for unknown tiers (shouldn't happen)
+        return 0.18  # default churn probability for unknown tiers (shouldn't happen)
     
 def churn_date (signup_date: date) -> date:
     """Return a churn date at least 7 days after signup_date, but prior to the end of the data range."""
@@ -111,12 +111,12 @@ def generate_users(n: int) -> list[dict]:
 def generate_subscription_events(users: list[dict]) -> list[dict]:
     """
     Generate subscription events for each user.
-
-    Rules:
-      - Every user gets a trial_started event on their signup_date
-      - TODO: implement trial_converted, subscription_renewed, subscription_cancelled, refund_issued
-      - Churned users must have a subscription_cancelled event near their churn_date
-      - amount_usd should be 0 for trials, realistic for renewals, negative for refunds
+    Includes:
+        - trial_started on signup_date for all users
+        - trial_converted for users who converted from free to paid
+        - subscription_renewed monthly for users who converted, until churn or CURRENT_DATE
+        - subscription_cancelled for churned users on their churn_date
+        - refund_issued for a random subset of churned users shortly after their churn_date
 
     Returns a flat list of event dicts, each with:
       event_id, user_id, event_type, event_date, plan_tier, amount_usd
@@ -125,20 +125,72 @@ def generate_subscription_events(users: list[dict]) -> list[dict]:
     event_id = 1
 
     for user in users:
-        # Every user starts with a trial
+        # Every user starts with the free tier
         events.append({
             "event_id": event_id,
             "user_id": user["user_id"],
             "event_type": "trial_started",
             "event_date": user["signup_date"],
-            "plan_tier": user["plan_tier"],
+            "plan_tier": "free",
             "amount_usd": 0.00,
         })
         event_id += 1
 
-        # users convert 
+        # users convert from the trial, then renew monthly
+        if user["plan_tier"] != "free":
+            conversion_date = user["signup_date"] + timedelta(days=random.randint(5, 20))
+            events.append({
+                "event_id": event_id,
+                "user_id": user["user_id"],
+                "event_type": "trial_converted",
+                "event_date": conversion_date,
+                "plan_tier": user["plan_tier"],
+                "amount_usd": 9.99 if user["plan_tier"] == "starter" else 29.99,
+            })
+            event_id += 1
 
-        # TODO: add subsequent events per user based on their plan_tier and is_churned status
+            # renew monthly until churn or CURRENT_DATE
+            end_date = user["churn_date"] if user["is_churned"] else CURRENT_DATE
+            renewal_date = conversion_date + timedelta(days=30)
+
+            while renewal_date < end_date:
+                events.append({
+                    "event_id": event_id,
+                    "user_id": user["user_id"],
+                    "event_type": "subscription_renewed",
+                    "event_date": renewal_date,
+                    "plan_tier": user["plan_tier"],
+                    "amount_usd": 9.99 if user["plan_tier"] == "starter" else 29.99,
+                })
+                event_id += 1
+                renewal_date += timedelta(days=30)
+
+
+        # users cancel their subscription (churn)
+        if user["is_churned"]:
+            events.append({
+                "event_id": event_id,
+                "user_id": user["user_id"],
+                "event_type": "subscription_cancelled",
+                "event_date": user["churn_date"],
+                "plan_tier": user["plan_tier"],
+                "amount_usd": 0.00,
+            })
+            event_id += 1
+
+            # users get refunds
+            refund = random.random() < 0.07  # 7% of cancellations result in refunds
+            refund_date = user["churn_date"] + timedelta(days = random.randint(1,7))
+            if refund and user["plan_tier"] != "free":
+                events.append({
+                    "event_id": event_id,
+                    "user_id": user["user_id"],
+                    "event_type": "refund_issued",
+                    "event_date": refund_date,
+                    "plan_tier": user["plan_tier"],
+                    "amount_usd": -9.99 if user["plan_tier"] == "starter" else -29.99,
+                })
+                event_id += 1
 
     return events
 
