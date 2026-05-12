@@ -1,0 +1,18 @@
+version: 2
+
+sources:
+  - name: seed
+    schema: "{{ target.schema }}"
+    freshness:
+      warn_after: {count: 90, period: day}
+      #error_after: {count: 180, period: day} # commented because this will not be up-to-date
+    tables:
+      - name: users
+        description: "one row per user with signup date and other demographic info"
+        loaded_at_field: signup_date
+      - name: subscription_events
+        description: "Subscription lifecycle events, including subscription start and end dates"
+        loaded_at_field: event_date
+      - name: usage_events
+        description: "Product usage sessions with feature and duration information"
+        loaded_at_field: event_date

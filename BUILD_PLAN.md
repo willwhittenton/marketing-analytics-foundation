@@ -22,10 +22,10 @@ This document is the working plan for building out this project. It exists so th
 - [X] Create Snowflake trial account and configure warehouse, database, schemas
 - [X] Initialize dbt project with `dbt init`
 - [X] Configure `profiles.yml` for Snowflake connection
-- [ ] Add `dbt-utils` to `packages.yml` and run `dbt deps`
-- [ ] Confirm `dbt debug` passes cleanly
-- [ ] Create repo structure: `models/staging`, `models/intermediate`, `models/marts`, `seeds/`, `tests/`
-- [ ] Add `.gitignore` for dbt artifacts and credentials
+- [X] Add `dbt-utils` to `packages.yml` and run `dbt deps`
+- [X] Confirm `dbt debug` passes cleanly
+- [X] Create repo structure: `models/staging`, `models/intermediate`, `models/marts`, `seeds/`, `tests/`
+- [X] Add `.gitignore` for dbt artifacts and credentials
 
 **Exit criteria:** `dbt debug` passes, repo is clean, folder structure is in place
 
@@ -47,11 +47,11 @@ This document is the working plan for building out this project. It exists so th
 - event_id, user_id, event_date, feature_used, session_duration_seconds
 
 ### Generator script (`seed_generator.py`)
-- [ ] Write Python script using `faker` and `random` to generate all three entities
-- [ ] Ensure referential integrity -- usage and subscription events only reference valid user_ids
-- [ ] Generate ~1,000 users, ~3,000 subscription events, ~15,000 usage events
-- [ ] Output as CSVs to `seeds/`
-- [ ] Document generation logic and assumptions in script comments
+- [X] Write Python script using `faker` and `random` to generate all three entities
+- [X] Ensure referential integrity -- usage and subscription events only reference valid user_ids
+- [X] Generate ~1,000 users, ~3,000 subscription events, ~15,000 usage events
+- [X] Output as CSVs to `seeds/`
+- [X] Document generation logic and assumptions in script comments
 
 **Exit criteria:** Three clean seed CSVs, generator script committed and documented
 

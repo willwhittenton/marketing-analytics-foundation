@@ -16,11 +16,7 @@ import random
 from datetime import date, timedelta
 from pathlib import Path
 
-from faker import Faker
-
-fake = Faker()
 random.seed(42)
-Faker.seed(42)
 
 # ---------------------------------------------------------------------------
 # Config
@@ -32,6 +28,7 @@ NUM_USAGE_EVENTS_TARGET = 15000
 PLAN_TIERS = ["free", "starter", "pro"]  # must match accepted_values tests in staging
 ACQUISITION_CHANNELS = ["organic", "paid_search", "referral", "social", "email"]
 COUNTRIES = ["US", "GB", "CA", "AU", "DE"]
+FEATURES = ["data_export", "reporting", "api_access", "team_management", "notifications","billing"]
 
 SIGNUP_DATE_START = date(2024, 1, 1)
 SIGNUP_DATE_END = date(2026, 1, 1)
@@ -200,9 +197,41 @@ def generate_subscription_events(users: list[dict]) -> list[dict]:
 # ---------------------------------------------------------------------------
 
 def generate_usage_events(users: list[dict]) -> list[dict]:
-    # TODO: implement in a later step
-    return []
+    """ Generate usage events for users based on their plan tier and churn status"""
+    event_id = 1
+    usage = []
 
+    for user in users:
+        # Determine the number of usage events based on plan tier and churn status
+        num_events = 0
+
+        if user["plan_tier"] == "free":
+            if user["is_churned"]:
+                num_events = random.randint(0, 2)  # churned free users have very low usage
+            else: num_events = random.randint(1, 5)  # free users have low usage
+        elif user["plan_tier"] == "starter":
+            if user["is_churned"]:
+                num_events = random.randint(2, 8)  # churned starter users have low usage
+            else:
+                num_events = random.randint(5, 15)  # starter users have moderate usage
+        else:  # pro users
+            if user["is_churned"]:
+                num_events = random.randint(10, 20)  # churned pro users have moderate usage
+            else:
+                num_events = random.randint(15, 30)  # pro users have high usage
+
+        # Generate usage events for the user
+        for _ in range(num_events):
+            usage_date = random_date(user["signup_date"], user["churn_date"] if user["is_churned"] else CURRENT_DATE)
+            usage.append({
+                "event_id": event_id,
+                "user_id": user["user_id"],
+                "feature_used": random.choice(FEATURES),
+                "event_date": usage_date,
+                "session_duration_seconds": random.randint(30, 3600),  # 30 seconds - 1 hour
+            })
+            event_id += 1
+    return usage
 
 # ---------------------------------------------------------------------------
 # Output
